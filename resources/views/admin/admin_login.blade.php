@@ -37,41 +37,54 @@
                                 <div class="border p-4 rounded">
                                     <div class="text-center">
                                         <h3 class="">Admin Sign in</h3>
-                                        {{-- <p>Don't have an account yet? <a href="authentication-signup.html">Sign up
-                                                here</a>
-                                        </p> --}}
+
                                     </div>
-                                    {{-- <div class="d-grid">
-                                        <a class="btn my-4 shadow-sm btn-white" href="javascript:;"> <span
-                                                class="d-flex justify-content-center align-items-center">
-                                                <img class="me-2"
-                                                    src="{{ asset('adminbackend/assets/images/icons/search.svg') }}"
-                                                    width="16" alt="Image Description">
-                                                <span>Sign in with Google</span>
-                                            </span>
-                                        </a> <a href="javascript:;" class="btn btn-facebook"><i
-                                                class="bx bxl-facebook"></i>Sign in with Facebook</a>
-                                    </div> --}}
-                                    {{-- <div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH
-                                            EMAIL</span>
-                                        <hr />
-                                    </div> --}}
+
                                     <div class="form-body">
                                         <form class="row g-3" method="POST" action="{{ route('login') }}">
                                             @csrf
+                                            {{-- Validation --}}
+                                            @if (session('status'))
+                                            <div class="alert alert-success" role="alert">
+                                                {{ session('status') }}
+                                            </div>
+                                            @elseif (session('error'))
+                                            <div class="alert alert-danger" role="alert">{{ session('error') }}</div>
+                                            @endif
+
+
+
+
+
+
                                             <div class="col-12">
                                                 <label for="inputEmailAddress" class="form-label">Email Address</label>
-                                                <input type="email" class="form-control" id="email" name="email"
-                                                    placeholder="Email Address">
+
+                                                <input type="email"
+                                                    class="form-control @error('email') is-invalid @enderror" id="email"
+                                                    name="email" placeholder="Email Address">
+
+                                                @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+
                                             </div>
                                             <div class="col-12">
                                                 <label for="inputChoosePassword" class="form-label">Enter
                                                     Password</label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input type="password" class="form-control border-end-0"
+
+
+                                                    <input type="password"
+                                                        class="form-control @error('password') is-invalid @enderror border-end-0"
                                                         id="password" name="password" placeholder="Enter Password"><a
                                                         href="javascript:;" class="input-group-text bg-transparent"><i
                                                             class='bx bx-hide'></i></a>
+
+                                                    @error('password')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

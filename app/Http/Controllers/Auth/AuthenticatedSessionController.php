@@ -34,16 +34,29 @@ class AuthenticatedSessionController extends Controller
 
         $url = '';
         if ($request->user()->role === 'admin') {
+            
             # code...
+            $notification = array(
+                'message' => 'Admin Profile Updated Successsfully',
+                'alert-type'=>'success'
+            );
             $url = 'admin/dashboard';
         }elseif ($request->user()->role === 'vendor') {
             # code...
+            $notification = array(
+                'message' => 'Vendor Profile Updated Successsfully',
+                'alert-type'=>'success'
+            );
             $url = 'vendor/dashboard';
         }elseif ($request->user()->role === 'user') {
             # code...
+            $notification = array(
+                'message' => 'User Profile Updated Successsfully',
+                'alert-type'=>'success'
+            );
             $url = '/dashboard';
         }
-        return redirect()->intended($url);
+        return redirect()->intended($url)->with($notification);
     }
 
     /**

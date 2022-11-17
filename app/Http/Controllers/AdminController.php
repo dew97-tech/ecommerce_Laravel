@@ -78,7 +78,7 @@ class AdminController extends Controller
         // Check Old Password Validate
         if(!Hash::check($request->old_password,auth::user()->password)){
             // dd(auth::user()->password);
-            // dd(Hash::check($request->old_password,auth::user()->password));
+            // dd(!Hash::check($request->old_password,auth::user()->password));
             return back()->with("error","Current Password Doesn't Match !!");
             
         }
