@@ -3,10 +3,18 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8"> {{ asset('adminbackend/') }}
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--favicon-->
-    <link rel="icon" href="{{ asset('adminbackend/assets/images/favicon-32x32.png') }}" type="image/png" />
+
+    <!--favicon as Admin Profile Pic (If it is there) If not then default pic-->
+    @php
+    $id = Auth::user()->id;
+    $adminData = App\Models\User::find($id);
+    @endphp
+    <link rel="icon"
+        href="{{ (!empty($adminData->photo)) ? url('upload/admin_images/'.$adminData->photo): asset('adminbackend/assets/images/favicon-32x32.png')}}"
+        type="image/png" />
+
     <!--plugins-->
     <link href="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <link href="{{ asset('adminbackend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
@@ -24,6 +32,10 @@
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/header-colors.css') }}" />
+    {{-- Toster CSS --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
     <title>Admin Dashboard</title>
 </head>
 
@@ -170,6 +182,31 @@
     <script src="{{ asset('adminbackend/assets/js/index.js') }}"></script>
     <!--app JS-->
     <script src="{{ asset('adminbackend/assets/js/app.js') }}"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    {{-- Toster JS Library --}}
+    <script>
+        @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type','info') }}"
+            switch(type){
+                case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+
+                case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+
+                case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+
+                case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break; 
+            }
+        @endif 
+    </script>
 </body>
 
 </html>

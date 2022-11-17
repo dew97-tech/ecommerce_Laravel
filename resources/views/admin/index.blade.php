@@ -86,8 +86,8 @@
     </div>
     <!--end row-->
 
-    <div class="row">
-        <div class="col-12 col-lg-8 col-xl-8 d-flex">
+    {{-- <div class="row"> --}}
+        {{-- <div class="col-12 col-lg-8 col-xl-8 d-flex">
             <div class="card radius-10 w-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
@@ -131,9 +131,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="col-12 col-lg-4 col-xl-4 d-flex">
+        {{-- <div class="col-12 col-lg-4 col-xl-4 d-flex">
             <div class="card radius-10 overflow-hidden w-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
@@ -174,12 +174,12 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> --}}
+        {{-- </div> --}}
     <!--End Row-->
 
 
-    <div class="row row-cols-1 row-cols-lg-3">
+    {{-- <div class="row row-cols-1 row-cols-lg-3">
         <div class="col">
             <div class="card radius-10">
                 <div class="card-body">
@@ -231,11 +231,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--End Row-->
 
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12 col-lg-12 col-xl-6">
             <div class="card radius-10">
                 <div class="card-body">
@@ -365,10 +365,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--End Row-->
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12 col-lg-6 col-xl-4 d-flex">
             <div class="card radius-10 overflow-hidden w-100">
                 <div class="card-body">
@@ -490,7 +490,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--End Row-->
 
 
@@ -523,7 +523,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="recent-product-img">
-                                        <img src="assets/images/icons/chair.png" alt="">
+                                        <img src="{{ asset('adminbackend/assets/images/icons/chair.png') }}" alt="">
                                     </div>
                                     <div class="ms-2">
                                         <h6 class="mb-1 font-14">Light Blue Chair</h6>
@@ -549,7 +549,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="recent-product-img">
-                                        <img src="assets/images/icons/shoes.png" alt="">
+                                        <img src="{{ asset('adminbackend/assets/images/icons/shoes.png') }}" alt="">
                                     </div>
                                     <div class="ms-2">
                                         <h6 class="mb-1 font-14">Green Sport Shoes</h6>
@@ -575,7 +575,8 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="recent-product-img">
-                                        <img src="assets/images/icons/headphones.png" alt="">
+                                        <img src="{{ asset('adminbackend/assets/images/icons/headphones.png') }}"
+                                            alt="">
                                     </div>
                                     <div class="ms-2">
                                         <h6 class="mb-1 font-14">Red Headphone 07</h6>
@@ -601,7 +602,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="recent-product-img">
-                                        <img src="assets/images/icons/idea.png" alt="">
+                                        <img src="{{ asset('adminbackend/assets/images/icons/idea.png') }}" alt="">
                                     </div>
                                     <div class="ms-2">
                                         <h6 class="mb-1 font-14">Mini Laptop Device</h6>
@@ -627,7 +628,8 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="recent-product-img">
-                                        <img src="assets/images/icons/user-interface.png" alt="">
+                                        <img src="{{ asset('adminbackend/assets/images/icons/user-interface.png')}}"
+                                            alt="">
                                     </div>
                                     <div class="ms-2">
                                         <h6 class="mb-1 font-14">Purple Mobile Phone</h6>
@@ -653,7 +655,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="recent-product-img">
-                                        <img src="assets/images/icons/watch.png" alt="">
+                                        <img src="{{ asset('adminbackend/assets/images/icons/watch.png') }}" alt="">
                                     </div>
                                     <div class="ms-2">
                                         <h6 class="mb-1 font-14">Smart Hand Watch</h6>
@@ -679,7 +681,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="recent-product-img">
-                                        <img src="assets/images/icons/tshirt.png" alt="">
+                                        <img src="{{ asset('adminbackend/assets/images/icons/tshirt.png') }}" alt="">
                                     </div>
                                     <div class="ms-2">
                                         <h6 class="mb-1 font-14">T-Shirt Blue</h6>
