@@ -37,21 +37,21 @@ class AuthenticatedSessionController extends Controller
             
             # code...
             $notification = array(
-                'message' => 'Admin Profile Updated Successsfully',
+                'message' => 'Admin login was successsful',
                 'alert-type'=>'success'
             );
             $url = 'admin/dashboard';
         }elseif ($request->user()->role === 'vendor') {
             # code...
             $notification = array(
-                'message' => 'Vendor Profile Updated Successsfully',
+                'message' => 'Vendor login was successsful',
                 'alert-type'=>'success'
             );
             $url = 'vendor/dashboard';
         }elseif ($request->user()->role === 'user') {
             # code...
             $notification = array(
-                'message' => 'User Profile Updated Successsfully',
+                'message' => 'User login was successsful',
                 'alert-type'=>'success'
             );
             $url = '/dashboard';
