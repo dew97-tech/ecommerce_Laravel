@@ -11,7 +11,7 @@
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <!-- Favicon -->{{ asset('frontend/') }}
+    <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/imgs/theme/favicon.svg')}}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css?v=5.3') }}" />
@@ -50,7 +50,9 @@
                             <div class="col-lg-6 col-md-8">
                                 <div class="login_wrap widget-taber-content background-white">
                                     <div class="padding_eight_all bg-white">
+
                                         <form method="POST" action="{{ route('password.email') }}">
+                                            @csrf
                                             <div class="form-group">
                                                 <input type="email" id="email" required="" name="email"
                                                     placeholder="Email *" />
@@ -61,6 +63,7 @@
                                                     name="login">Email Password Reset Link</button>
                                             </div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
