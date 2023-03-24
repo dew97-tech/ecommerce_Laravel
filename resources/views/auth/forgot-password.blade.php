@@ -51,7 +51,7 @@
                                 <div class="login_wrap widget-taber-content background-white">
                                     <div class="padding_eight_all bg-white">
 
-                                        <form method="POST" action="{{ route('password.email') }}">
+                                        <form method="post" action="{{ route('password.email') }}">
                                             @csrf
                                             <div class="form-group">
                                                 <input type="email" id="email" required="" name="email"

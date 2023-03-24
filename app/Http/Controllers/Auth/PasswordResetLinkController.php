@@ -38,7 +38,8 @@ class PasswordResetLinkController extends Controller
         $status = Password::sendResetLink(
             $request->only('email')
         );
-
+        // i used Mailtrap and my account iis with google sign in with anikmallick.bd@gmail.com
+        // user@gmail.com and pass : dew12345 (default : 111)
         return $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))
