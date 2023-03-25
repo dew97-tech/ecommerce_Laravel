@@ -20,8 +20,10 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+// User Routes
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard',[UserController::class,'UserDashboard'])->name('dashboard');
+    Route::post('/user/profile/store',[UserController::class,'UserProfileStore'])->name('user.profile.store');
 
 
     // Group Middleware End
@@ -34,6 +36,7 @@ Route::middleware(['auth'])->group(function(){
 require __DIR__.'/auth.php';
 
 // Middleware
+
 // Admin Routes
 Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/admin/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard');

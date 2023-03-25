@@ -58,6 +58,11 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="mb-0">Hello {{ Auth::user()->name }}!</h3>
+                                        <br>
+                                        <br>
+                                        <img id="showImage"
+                                            src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo): url('upload/no_image.jpg')}}"
+                                            alt="User" style="width: 100px; height:100px;">
                                     </div>
                                     <div class="card-body">
                                         <p>
@@ -188,7 +193,9 @@
                                         <h5>Account Details</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form method="post" name="enq">
+                                        <form enctype="multipart/form-data" method="post"
+                                            action="{{ route('user.profile.store') }}">
+                                            @csrf
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label>User Name <span class="required">*</span></label>
@@ -208,7 +215,7 @@
                                                 <div class="form-group col-md-12">
                                                     <label>Phone <span class="required">*</span></label>
                                                     <input required="" class="form-control" name="phone" type="text"
-                                                        value="{{ $userData->username }}" />
+                                                        value="{{ $userData->phone }}" />
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label>Address <span class="required">*</span></label>

@@ -17,4 +17,33 @@ class UserController extends Controller
         return view('index',compact('userData'));
     
     }
+    public function UserProfileStore(Request $request){
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        $data->username = $request->username;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->address = $request->address;
+        
+        // For Storing Photo to DB
+        if ($request->file('photo')) {
+            # code...
+            $file = $request->file('photo');
+            @unlink(public_path('upload/user_images/'.$data->photo));
+            $filename =  date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/user_images'),$filename);
+            $data['photo'] = $filename;
+            // dd($data);
+
+        }
+        $data->save();
+
+        $notification = array(
+            'message' => 'User Profile Updated Successsfully',
+            'alert-type'=>'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
